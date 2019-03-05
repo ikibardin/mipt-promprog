@@ -1,0 +1,11 @@
+FROM python:3.7-alpine
+
+WORKDIR /src
+
+ADD consumer.py /src
+ADD config.py /src
+ADD requirements.txt /src
+
+RUN pip install -r /src/requirements.txt
+
+CMD ["python", "-u", "consumer.py"]

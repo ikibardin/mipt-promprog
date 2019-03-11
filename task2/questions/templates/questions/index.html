@@ -1,0 +1,15 @@
+<form action="/questions/" method="post">
+    {% csrf_token %}
+    {{ field }}
+    <input type="submit" value="Ok">
+</form>
+{% if questions %}
+	<p>Questions Archive:</p>
+    <ul>
+    {% for question in questions %}
+        <li>{{ question.data }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no questions.</p>
+{% endif %}
